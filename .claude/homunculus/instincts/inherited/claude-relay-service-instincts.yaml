@@ -1,0 +1,710 @@
+# Instincts generated from https://github.com/bufanliu/claude-relay-service
+# Generated: 2026-03-25T14:44:24.693Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: claude-relay-service-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/bufanliu/claude-relay-service
+---
+
+# Claude Relay Service Commit Length
+
+## Action
+
+Write moderate-length commit messages (~54 characters)
+
+## Evidence
+
+- Average commit message length: 54 chars
+- Based on 200 commits
+
+---
+id: claude-relay-service-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/bufanliu/claude-relay-service
+---
+
+# Claude Relay Service Naming Files
+
+## Action
+
+Use camelCase naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: camelCase
+
+---
+id: claude-relay-service-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/bufanliu/claude-relay-service
+---
+
+# Claude Relay Service Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: claude-relay-service-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/bufanliu/claude-relay-service
+---
+
+# Claude Relay Service Export Style
+
+## Action
+
+Prefer named exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: named
+
+---
+id: claude-relay-service-arch-type-based
+trigger: "when adding new code"
+confidence: 0.8
+domain: architecture
+source: repo-analysis
+source_repo: https://github.com/bufanliu/claude-relay-service
+---
+
+# Claude Relay Service Arch Type Based
+
+## Action
+
+Place code in the appropriate type folder (components/, services/, utils/, etc.)
+
+## Evidence
+
+- Type-based module organization detected
+- Folders: cli, handlers, middleware, models, routes
+
+---
+id: claude-relay-service-test-separate
+trigger: "when writing tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/bufanliu/claude-relay-service
+---
+
+# Claude Relay Service Test Separate
+
+## Action
+
+Place tests in the tests/ or __tests__/ directory, mirroring src structure
+
+## Evidence
+
+- Separate test directory pattern detected
+- Tests live in dedicated test folders
+
+---
+id: claude-relay-service-test-framework
+trigger: "when writing tests"
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/bufanliu/claude-relay-service
+---
+
+# Claude Relay Service Test Framework
+
+## Action
+
+Use jest as the test framework
+
+## Evidence
+
+- Test framework detected: jest
+- File pattern: *.test.js
+
+---
+id: claude-relay-service-test-naming
+trigger: "when creating a test file"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/bufanliu/claude-relay-service
+---
+
+# Claude Relay Service Test Naming
+
+## Action
+
+Name test files using the pattern: *.test.js
+
+## Evidence
+
+- File pattern: *.test.js
+- Consistent across test files
+
+---
+id: claude-relay-service-test-mocking
+trigger: "when mocking dependencies in tests"
+confidence: 0.75
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/bufanliu/claude-relay-service
+---
+
+# Claude Relay Service Test Mocking
+
+## Action
+
+Use jest.mock for mocking
+
+## Evidence
+
+- Mocking pattern detected: jest.mock
+- Consistent across test files
+
+---
+id: claude-relay-service-test-types
+trigger: "when planning tests for a feature"
+confidence: 0.7
+domain: testing
+source: repo-analysis
+source_repo: https://github.com/bufanliu/claude-relay-service
+---
+
+# Claude Relay Service Test Types
+
+## Action
+
+Write unit, integration tests to match project standards
+
+## Evidence
+
+- Test types detected: unit, integration
+- Coverage config: no
+
+---
+id: claude-relay-service-workflow-feature-development
+trigger: "when implementing a new feature"
+confidence: 0.65
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/bufanliu/claude-relay-service
+---
+
+# Claude Relay Service Workflow Feature Development
+
+## Action
+
+Follow the feature-development workflow:
+1. Add feature implementation
+2. Add tests for feature
+3. Update documentation
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~3x per month
+- Files: web/admin-spa/src/components/apikeys/*, **/api/**
+
+---
+id: claude-relay-service-workflow-model-pricing-or-pricing-logic-update
+trigger: "when doing model pricing or pricing logic update"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/bufanliu/claude-relay-service
+---
+
+# Claude Relay Service Workflow Model Pricing Or Pricing Logic Update
+
+## Action
+
+Follow the model-pricing-or-pricing-logic-update workflow:
+1. Edit resources/model-pricing/model_prices_and_context_window.json to update or add pricing/context window info.
+2. Update src/services/pricingService.js to adjust pricing calculation logic.
+3. Update or add tests in tests/pricingService.test.js to verify new pricing logic.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: resources/model-pricing/model_prices_and_context_window.json, src/services/pricingService.js, tests/pricingService.test.js
+
+---
+id: claude-relay-service-workflow-api-key-feature-or-permission-update
+trigger: "when doing api key feature or permission update"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/bufanliu/claude-relay-service
+---
+
+# Claude Relay Service Workflow Api Key Feature Or Permission Update
+
+## Action
+
+Follow the api-key-feature-or-permission-update workflow:
+1. Update src/models/redis.js to add new API key fields.
+2. Update src/services/apiKeyService.js to handle new fields in creation, validation, and update logic.
+3. Update src/middleware/auth.js to attach new fields to request context.
+4. Update src/routes/admin/apiKeys.js and src/routes/api.js for API changes.
+5. Update web/admin-spa/src/components/apikeys/*Modal.vue for admin UI (Create, Edit, Batch Edit).
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: src/models/redis.js, src/services/apiKeyService.js, src/middleware/auth.js
+
+---
+id: claude-relay-service-workflow-bedrock-relay-auth-or-forwarding-fix
+trigger: "when doing bedrock relay auth or forwarding fix"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/bufanliu/claude-relay-service
+---
+
+# Claude Relay Service Workflow Bedrock Relay Auth Or Forwarding Fix
+
+## Action
+
+Follow the bedrock-relay-auth-or-forwarding-fix workflow:
+1. Edit src/services/relay/bedrockRelayService.js to fix auth/token logic or parameter handling.
+2. Optionally update src/routes/api.js if API-level logic is affected.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: src/services/relay/bedrockRelayService.js, src/routes/api.js
+
+---
+id: claude-relay-service-workflow-account-or-routing-policy-enhancement
+trigger: "when doing account or routing policy enhancement"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/bufanliu/claude-relay-service
+---
+
+# Claude Relay Service Workflow Account Or Routing Policy Enhancement
+
+## Action
+
+Follow the account-or-routing-policy-enhancement workflow:
+1. Edit src/services/account/claudeAccountService.js and src/services/relay/claudeRelayService.js for logic changes.
+2. Update src/services/scheduler/unifiedClaudeScheduler.js and src/utils/upstreamErrorHelper.js for policy/backoff.
+3. Update src/utils/tempUnavailablePolicy.js for policy extraction.
+4. Update web/admin-spa/src/components/accounts/AccountForm.vue, TempUnavailablePolicyFields.vue, and AccountsView.vue for admin UI.
+5. Update config/config.example.js, .env.example, README.md, README_EN.md for documentation/config.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: src/services/account/claudeAccountService.js, src/services/relay/claudeRelayService.js, src/services/scheduler/unifiedClaudeScheduler.js
+
+---
+id: claude-relay-service-workflow-version-bump-release-sync
+trigger: "when doing version bump release sync"
+confidence: 0.7
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/bufanliu/claude-relay-service
+---
+
+# Claude Relay Service Workflow Version Bump Release Sync
+
+## Action
+
+Follow the version-bump-release-sync workflow:
+1. Update VERSION file with the new release number.
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~4x per month
+- Files: VERSION
+
+---
+id: claude-relay-service-instinct-filename-camelcase
+trigger: "When creating or renaming a file in the codebase."
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: bufanliu/claude-relay-service
+---
+
+# Claude Relay Service Instinct Filename Camelcase
+
+## Action
+
+Name the file using camelCase (e.g., myModule.js).
+
+## Evidence
+
+- Pattern in namingConventions.files: camelCase
+- Files in src/ follow camelCase
+
+---
+id: claude-relay-service-instinct-function-camelcase
+trigger: "When defining a function."
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: bufanliu/claude-relay-service
+---
+
+# Claude Relay Service Instinct Function Camelcase
+
+## Action
+
+Use camelCase for function names.
+
+## Evidence
+
+- Pattern in namingConventions.functions: camelCase
+- Functions in src/services/apiKeyService.js
+
+---
+id: claude-relay-service-instinct-class-pascalcase
+trigger: "When defining a class."
+confidence: 0.9
+domain: code-style
+source: repo-analysis
+source_repo: bufanliu/claude-relay-service
+---
+
+# Claude Relay Service Instinct Class Pascalcase
+
+## Action
+
+Use PascalCase for class names.
+
+## Evidence
+
+- Pattern in namingConventions.classes: PascalCase
+- Classes in src/models/redis.js
+
+---
+id: claude-relay-service-instinct-constant-screaming-snake-case
+trigger: "When defining a constant."
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: bufanliu/claude-relay-service
+---
+
+# Claude Relay Service Instinct Constant Screaming Snake Case
+
+## Action
+
+Use SCREAMING_SNAKE_CASE for constant names.
+
+## Evidence
+
+- Pattern in namingConventions.constants: SCREAMING_SNAKE_CASE
+- Constants in src/utils/upstreamErrorHelper.js
+
+---
+id: claude-relay-service-instinct-import-relative
+trigger: "When importing modules within the codebase."
+confidence: 0.85
+domain: code-style
+source: repo-analysis
+source_repo: bufanliu/claude-relay-service
+---
+
+# Claude Relay Service Instinct Import Relative
+
+## Action
+
+Use relative import paths.
+
+## Evidence
+
+- Pattern in importStyle: relative
+- Imports in src/routes/api.js
+
+---
+id: claude-relay-service-instinct-export-named
+trigger: "When exporting modules or functions."
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: bufanliu/claude-relay-service
+---
+
+# Claude Relay Service Instinct Export Named
+
+## Action
+
+Use named exports.
+
+## Evidence
+
+- Pattern in exportStyle: named
+- Exports in src/services/pricingService.js
+
+---
+id: claude-relay-service-instinct-test-file-pattern
+trigger: "When creating a test file."
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: bufanliu/claude-relay-service
+---
+
+# Claude Relay Service Instinct Test File Pattern
+
+## Action
+
+Name the test file with the pattern *.test.js.
+
+## Evidence
+
+- Pattern in testing.filePattern: *.test.js
+- tests/pricingService.test.js
+
+---
+id: claude-relay-service-instinct-test-framework-jest
+trigger: "When writing tests."
+confidence: 0.9
+domain: testing
+source: repo-analysis
+source_repo: bufanliu/claude-relay-service
+---
+
+# Claude Relay Service Instinct Test Framework Jest
+
+## Action
+
+Use Jest as the testing framework.
+
+## Evidence
+
+- Pattern in testing.framework: jest
+- tests/pricingService.test.js uses Jest
+
+---
+id: claude-relay-service-instinct-test-mocking-jest-mock
+trigger: "When mocking dependencies in tests."
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: bufanliu/claude-relay-service
+---
+
+# Claude Relay Service Instinct Test Mocking Jest Mock
+
+## Action
+
+Use jest.mock for mocking.
+
+## Evidence
+
+- Pattern in testing.mockingStyle: jest.mock
+- Mocks in tests/pricingService.test.js
+
+---
+id: claude-relay-service-instinct-test-type-unit-integration
+trigger: "When deciding on test types."
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: bufanliu/claude-relay-service
+---
+
+# Claude Relay Service Instinct Test Type Unit Integration
+
+## Action
+
+Write both unit and integration tests as appropriate.
+
+## Evidence
+
+- Pattern in testing.testTypes: unit, integration
+- tests/pricingService.test.js
+
+---
+id: claude-relay-service-instinct-commit-prefix
+trigger: "When writing a commit message."
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: bufanliu/claude-relay-service
+---
+
+# Claude Relay Service Instinct Commit Prefix
+
+## Action
+
+Prefix the commit message with type (fix, feat, chore, style, docs) followed by a colon.
+
+## Evidence
+
+- Pattern in commits.prefixes
+- Example: fix: Bedrock thinking 模式下 max_tokens 被错误限制为 4096
+
+---
+id: claude-relay-service-instinct-commit-length
+trigger: "When writing a commit message."
+confidence: 0.7
+domain: git
+source: repo-analysis
+source_repo: bufanliu/claude-relay-service
+---
+
+# Claude Relay Service Instinct Commit Length
+
+## Action
+
+Keep the commit message concise (around 54 characters on average).
+
+## Evidence
+
+- Pattern in commits.averageLength: 54
+- Example: chore: sync VERSION file with release v1.1.296 [skip ci]
+
+---
+id: claude-relay-service-instinct-commit-merge-pr
+trigger: "When merging a pull request."
+confidence: 0.8
+domain: git
+source: repo-analysis
+source_repo: bufanliu/claude-relay-service
+---
+
+# Claude Relay Service Instinct Commit Merge Pr
+
+## Action
+
+Use the format 'Merge pull request #[number] from [branch]'.
+
+## Evidence
+
+- Example: Merge pull request #1086 from Cyli00/main
+
+---
+id: claude-relay-service-instinct-model-pricing-update
+trigger: "When model pricing or context window changes, or new models are added that require pricing logic updates."
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: bufanliu/claude-relay-service
+---
+
+# Claude Relay Service Instinct Model Pricing Update
+
+## Action
+
+Edit resources/model-pricing/model_prices_and_context_window.json, update src/services/pricingService.js, and update/add tests in tests/pricingService.test.js.
+
+## Evidence
+
+- Workflow: model-pricing-or-pricing-logic-update
+- Commits updating model_prices_and_context_window.json and pricingService.js
+
+---
+id: claude-relay-service-instinct-api-key-feature-update
+trigger: "When a new API key feature/permission is needed or existing logic needs to be changed."
+confidence: 0.95
+domain: workflow
+source: repo-analysis
+source_repo: bufanliu/claude-relay-service
+---
+
+# Claude Relay Service Instinct Api Key Feature Update
+
+## Action
+
+Update src/models/redis.js, src/services/apiKeyService.js, src/middleware/auth.js, src/routes/admin/apiKeys.js, src/routes/api.js, and web/admin-spa/src/components/apikeys/*Modal.vue.
+
+## Evidence
+
+- Workflow: api-key-feature-or-permission-update
+- Commits updating apiKeyService.js and related UI
+
+---
+id: claude-relay-service-instinct-bedrock-relay-auth-fix
+trigger: "When Bedrock relay integration requires authentication fixes, token support, or new parameter passthrough."
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: bufanliu/claude-relay-service
+---
+
+# Claude Relay Service Instinct Bedrock Relay Auth Fix
+
+## Action
+
+Edit src/services/relay/bedrockRelayService.js and optionally src/routes/api.js.
+
+## Evidence
+
+- Workflow: bedrock-relay-auth-or-forwarding-fix
+- Commits editing bedrockRelayService.js
+
+---
+id: claude-relay-service-instinct-account-routing-enhancement
+trigger: "When account routing, temporary block, or cooldown/backoff logic needs to be improved or made configurable."
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: bufanliu/claude-relay-service
+---
+
+# Claude Relay Service Instinct Account Routing Enhancement
+
+## Action
+
+Edit src/services/account/claudeAccountService.js, src/services/relay/claudeRelayService.js, src/services/scheduler/unifiedClaudeScheduler.js, src/utils/upstreamErrorHelper.js, src/utils/tempUnavailablePolicy.js, and update related admin UI and documentation.
+
+## Evidence
+
+- Workflow: account-or-routing-policy-enhancement
+- Commits editing claudeAccountService.js and admin UI
+
+---
+id: claude-relay-service-instinct-version-bump
+trigger: "When a new release is cut and the VERSION file needs to be updated."
+confidence: 1
+domain: workflow
+source: repo-analysis
+source_repo: bufanliu/claude-relay-service
+---
+
+# Claude Relay Service Instinct Version Bump
+
+## Action
+
+Update the VERSION file with the new release number.
+
+## Evidence
+
+- Workflow: version-bump-release-sync
+- Commits: chore: sync VERSION file with release v1.1.296 [skip ci]
+
